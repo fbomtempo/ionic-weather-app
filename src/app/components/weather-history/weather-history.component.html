@@ -1,0 +1,17 @@
+<div *ngFor="let weatherHistory of collectionWeatherHistory">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>{{ weatherHistory.name }}, {{ weatherHistory.country }}</ion-card-subtitle>
+      <ion-card-title>{{ weatherHistory.temp }}°C</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><ion-icon style=" color: blue;" name="arrow-down-outline"></ion-icon>Min. Temp: {{ weatherHistory.min_temp }}°C</p>
+      <p><ion-icon style=" color: red;" name="arrow-up-outline"></ion-icon>Max. Temp: {{ weatherHistory.max_temp }}°C</p>
+    </ion-card-content>
+  </ion-card>
+</div>
+
+<section>
+  <ion-button (click)="emitEvent({ page: 'search' })">Voltar</ion-button>
+  <ion-button color="danger" (click)="clear()">Limpar</ion-button>
+</section>

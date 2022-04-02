@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      {{ this.pageTitle }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">{{ this.pageTitle }}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <app-weather-search *ngIf="this.loadPage.page === 'search'" (event)="setLoadedPage($event)"></app-weather-search>
+    <app-weather-result *ngIf="this.loadPage.page === 'result'" (event)="setLoadedPage($event)" [searchResult]="this.loadPage.result"></app-weather-result>
+    <app-weather-history *ngIf="this.loadPage.page === 'history'" (event)="setLoadedPage($event)"></app-weather-history>
+  </div>
+</ion-content>

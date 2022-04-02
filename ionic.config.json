@@ -1,0 +1,7 @@
+{
+  "name": "ionic-tarefa1",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

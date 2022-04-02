@@ -1,0 +1,42 @@
+<section *ngIf="this.weatherResult$ | async as weatherResult">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <span style="font-weight: bold;">{{ weatherResult.name }}, {{ weatherResult.sys.country }}</span>
+      </ion-col>
+      <ion-col size="12">
+        Latitude: <span style="font-weight: bold;">{{ weatherResult.coord.lat }}</span>
+      </ion-col>
+      <ion-col size="12">
+        Longitude: <span style="font-weight: bold;">{{ weatherResult.coord.lon }}</span>
+      </ion-col>
+      <ion-col size="6">
+        <img [src]="'http://openweathermap.org/img/wn/'+ this.weatherIcon + '@2x.png'">
+      </ion-col>
+      <ion-col size="6" class="ion-align-self-center">
+        <h1 style="font-weight: bold; font-size: 2.2rem">{{ weatherResult.main.temp }}°C</h1>
+      </ion-col>
+      <ion-col size="6" style="text-align: center;">
+        <span style="font-size: 1rem;">Min. Temp.<ion-icon style="color: blue;" name="arrow-down-outline"></ion-icon></span>
+      </ion-col>
+      <ion-col size="6" style="text-align: center;">
+        <span style="font-size: 1rem">Max. Temp.<ion-icon style=" color: red;" name="arrow-up-outline"></ion-icon></span>
+      </ion-col>
+      <ion-col size="6" style="text-align: center;">
+        <span style="font-weight: bold; font-size: 1rem">{{ weatherResult.main.temp_min }}°C</span>
+      </ion-col>
+      <ion-col size="6" style="text-align: center;">
+        <span style="font-weight: bold; font-size: 1rem">{{ weatherResult.main.temp_max }}°C</span>
+      </ion-col>
+      <ion-col size="12" style="text-align: center; padding-top: 20px;">
+        <span style="font-size: 1rem">Feels Like<ion-icon name="thermometer-outline"></ion-icon></span>
+      </ion-col>
+      <ion-col size="12" style="text-align: center;">
+        <span style="font-size: 1rem; font-weight: bold;">{{weatherResult.main.feels_like }}°C</span>
+      </ion-col>
+      <ion-col size="12" style="padding-top: 20px;">
+        <ion-button expand="block" (click)="emitEvent({ page: 'search' })">Voltar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</section>
